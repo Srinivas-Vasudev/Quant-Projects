@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 #for the app
 st.set_page_config(page_title="LSTM Forecasting App", layout="wide")
-st.title("📈 General Purpose LSTM Forecasting App")
+st.title("General Purpose LSTM Forecasting App")
 
 #main codes LSTM
 def train_and_forecast(df, target_col, feature_cols, n_past, n_future, future_macros):
@@ -94,9 +94,9 @@ if uploaded_file:
     
     # Column Selection
     st.sidebar.subheader("Select Columns")
-    target_col = st.sidebar.selectbox('🎯 Select Target Column to Forecast', df.columns)
+    target_col = st.sidebar.selectbox('Select Target Column to Forecast', df.columns)
     available_features = [col for col in df.columns if col != target_col]
-    feature_cols = st.sidebar.multiselect('🧠 Select Feature Columns (Macros)', available_features, default=available_features[:3])
+    feature_cols = st.sidebar.multiselect('Select Feature Columns (Macros)', available_features, default=available_features[:3])
 
     if not feature_cols:
         st.warning("Please select at least one feature column.")
@@ -108,7 +108,7 @@ if uploaded_file:
     n_future = 1 # Keeping this fixed for nowcasting as per the logic
 
     # Future Macro Inputs
-    st.sidebar.subheader("🔮 Enter new Macro Values")
+    st.sidebar.subheader("Enter new Macro Values")
     future_macros_input = []
     for col in feature_cols:
         val = st.sidebar.number_input(f'Enter new value for {col}', format="%.4f")
@@ -124,14 +124,14 @@ if uploaded_file:
             forecast_value, history, future_date = train_and_forecast(df, target_col, feature_cols, n_past, n_future, future_macros_input)
             
             # Display forecast
-            st.success(f"✅ Forecast Complete!")
+            st.success(f"Forecast Complete!")
             st.metric(
                 label=f"Forecasted {target_col} for {future_date.strftime('%Y-%m-%d')}",
                 value=f"{forecast_value:.4f} (or {forecast_value*100:.2f}%)"
             )
 
             # Display Plots
-            st.subheader("📊 Model Performance")
+            st.subheader("Model Performance")
             
             # Loss Curve
             fig, ax = plt.subplots()
@@ -144,7 +144,7 @@ if uploaded_file:
             st.pyplot(fig)
 
             # Forecast vs Actual Plot
-            st.subheader("📈 Forecast vs. Actual Data")
+            st.subheader("Forecast vs. Actual Data")
             fig2, ax2 = plt.subplots(figsize=(12, 6))
             ax2.plot(df.index, df[target_col], label='Actual Historical Data')
             # Create a new series for the forecast point
