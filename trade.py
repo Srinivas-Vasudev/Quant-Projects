@@ -3,7 +3,7 @@ import streamlit as st
 # Set page title and icon
 st.set_page_config(page_title="Execution Tool", page_icon="📈")
 
-st.title("xecution Checklist")
+st.title("Execution Checklist")
 st.markdown("---")
 
 # Section 1: HTF Context (The Setup)
