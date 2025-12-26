@@ -1,9 +1,9 @@
 import streamlit as st
 
 # Set page title and icon
-st.set_page_config(page_title="TJR Execution Tool", page_icon="📈")
+st.set_page_config(page_title="Execution Tool", page_icon="📈")
 
-st.title("🛡️ TJR Strategy Execution Checklist")
+st.title("Strategy Execution Checklist")
 st.markdown("---")
 
 # Section 1: HTF Context (The Setup)
